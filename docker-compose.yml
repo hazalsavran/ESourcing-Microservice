@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  sourcingdb:
+    image: mongo:4.2.3
+
+  esourcing.products:
+    image: ${DOCKER_REGISTRY-}esourcingproducts
+    build:
+      context: .
+      dockerfile: src/Services/Products/ESourcing.Products/Dockerfile
+
+  esourcing.sourcing:
+    image: ${DOCKER_REGISTRY-}esourcingsourcing
+    build:
+      context: .
+      dockerfile: src/Services/Sourcing/ESourcing.Sourcing/Dockerfile
+
